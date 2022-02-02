@@ -32,6 +32,7 @@ export const Home = () => {
 
     return (
         <C.Area>
+            <div className='container'>
             <section className='global--crypto--stats'>
                 <h1>Global Crypto Stats</h1>
                 <div className='crypto--stats--area'>
@@ -63,6 +64,7 @@ export const Home = () => {
                     {cryptos?.data.coins.map((coin) => (
                         <Topten
                             key={coin.uuid}
+                            uuid={coin.uuid}
                             rank={coin.rank}
                             name={coin.name}
                             iconUrl={coin.iconUrl}
@@ -82,13 +84,14 @@ export const Home = () => {
                             url={item.url}
                             desc={item.description}
                             provider={item.provider[0].name}
-                            providerImg={item.provider[0].image.thumbnail.contentUrl}
+                            providerImg={item.provider[0].image?.thumbnail.contentUrl}
                             date={item.datePublished}
                             img={item.image.thumbnail.contentUrl}
                         />
                     ))}
                 </div>
             </section>
+            </div>
         </C.Area>
     )
 }

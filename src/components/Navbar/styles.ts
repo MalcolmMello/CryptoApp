@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
-export const Navbar = styled.nav`
-    height: 100vh;
-    width: 20vw;
-    left: 0px;
+export const Navbar = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    width: 100%;
+    position: fixed;
     background: #1b1a1d;
     color: #FFF;
-    position: fixed;
-    padding: 10px;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1024px;
+        margin: auto
+    }
 
     .logo--area {
         display: flex;
@@ -16,10 +25,16 @@ export const Navbar = styled.nav`
         img {
             height: 35px;
             width: 35px;
+            margin-right: 20px
+        }
+        h1 {
+            font-size: 25px;
+            font-weight: 300
         }
     }
 
     .nav--area {
+        display: flex;
         list-style: none;
         padding: 0px 20px;
         margin-top: 30px;
@@ -28,6 +43,7 @@ export const Navbar = styled.nav`
             color: #FFF;
             display: flex;
             align-items: flex-end;
+            margin-left: 30px;
             img {
                 height: 30px;
                 width: 30px;

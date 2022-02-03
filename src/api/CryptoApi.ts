@@ -1,8 +1,10 @@
 import axios from 'axios'
+
 interface Props {
     uuidToString: string,
     period: string
 }
+
 const http = axios.create({
     baseURL: 'https://coinranking1.p.rapidapi.com'
 })

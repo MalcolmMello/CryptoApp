@@ -88,4 +88,42 @@ export const Crypto = styled.main`
             }
         }
     }
+
+    @media(max-width: 1024px) {
+        .container {
+            width: 100%;
+            padding: 20px
+        }
+    }
+
+    @media(max-width: 669px) {
+        .header {
+            margin-bottom: 20px
+        }
+    }
+
+    @media(max-width: 565px) {
+        .select--area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            select {
+                margin: 20px 0px
+            }
+        }
+        .crypto--data {
+            flex-direction: column
+        }
+
+        .container .crypto--info {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media(max-width: 478px) {
+        .header small {
+            text-align: center
+        }
+    }
 `

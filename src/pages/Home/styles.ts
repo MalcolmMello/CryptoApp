@@ -31,4 +31,41 @@ export const Area = styled.main`
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px
     }
+
+    @media(max-width: 1024px) {
+        .container {
+            width: 100%;
+            padding: 10px
+        }
+    }
+
+    @media(max-width: 800px) {
+        .coins--area .top--10--area {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .news--area .news--grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width: 650px) {
+        .coins--area .top--10--area {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width: 510px) {
+        .coins--area .top--10--area {
+            grid-template-columns: 1fr;
+        }
+        .news--area .news--grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media(max-width: 400px) {
+        .global--crypto--stats .crypto--stats--area {
+            grid-template-columns: 1fr;
+        }
+    }
 `

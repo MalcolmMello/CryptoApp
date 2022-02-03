@@ -30,4 +30,30 @@ export const Cryptocurrencies = styled.main`
         grid-gap: 20px;
         padding: 20px 0px
     }
+
+    @media(max-width: 1024px) {
+        .container {
+            width: 100%;
+            padding: 10px
+        }
+    }
+
+    @media(max-width: 800px) {
+        .coins--area {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media(max-width: 650px) {
+        .coins--area {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width: 510px) {
+        .coins--area {
+            grid-template-columns: 1fr;
+        }
+    }
+
 `

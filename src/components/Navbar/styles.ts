@@ -55,4 +55,17 @@ export const Navbar = styled.header`
             }
         }
     }
+
+    @media(max-width: 1024px) {
+        .container {
+            width: 100%;
+            padding: 10px
+        }
+    }
+    
+    @media(max-width: 510px) {
+        .nav--area {
+            display: none
+        }
+    }
 `

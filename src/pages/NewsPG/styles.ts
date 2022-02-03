@@ -29,4 +29,22 @@ export const NewsPG = styled.main`
             padding: 20px 0px
         }
     }
+    @media(max-width: 1024px) {
+        .container {
+            width: 100%;
+            padding: 10px
+        }
+    }
+
+    @media(max-width: 800px) {
+        .container .news--area {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width: 554px) {
+        .container .news--area {
+            grid-template-columns: 1fr;
+        }
+    }
 `

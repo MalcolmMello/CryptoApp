@@ -19,7 +19,7 @@ export const News = ({title, url, desc, provider, providerImg, date, img}: Props
     return (
         <C.News theme={state.theme.theme}>
             <a href={url} target="_blank">
-                <div className='title'><h4>{title}</h4> <img src={img} alt="imagem da notícia" /></div>
+                <div className='title'><h4>{title}</h4> <img src={img ? img : defaultimg} alt="imagem da notícia" /></div>
                 <div className='description'><p>{desc}</p></div>
                 <div className='provider--data'>
                     <div className='provider--name'>

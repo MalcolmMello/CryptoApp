@@ -89,7 +89,7 @@ export const Home = () => {
                             provider={item.provider[0].name}
                             providerImg={item.provider[0].image?.thumbnail.contentUrl}
                             date={item.datePublished}
-                            img={item.image.thumbnail.contentUrl}
+                            img={item.image?.thumbnail.contentUrl}
                         />
                     ))}
                 </div>

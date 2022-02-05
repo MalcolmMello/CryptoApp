@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const News = styled.div`
-    background: #1b1a1d;
+export const News = styled.div<{theme: string}>`
+    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 98%)' : '#1b1a1d'};
+    transition: ãll ease 0.2s;
     border-radius: 5px;
     padding: 10px;
 
@@ -11,7 +12,8 @@ export const News = styled.div`
         flex-direction: column;
         justify-content: space-between;
         text-decoration:  none;
-        color: #FFF;
+        color: ${props => props.theme === 'light' ? '#000' : '#fff'};
+        transition: ãll ease 0.2s;
         .title {
             display: flex;
             h4 {

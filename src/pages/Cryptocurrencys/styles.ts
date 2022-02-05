@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const Cryptocurrencies = styled.main`
+export const Cryptocurrencies = styled.main<{theme: string}>`
     min-height: 100vh;
     padding: 120px 0px;
-    background: #141316;
-    color: #FFF;
+    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 94%)' : '#141316'};
+    color: ${props => props.theme === 'light' ? '#000' : '#fff'};
+    transition: all ease 0.2s;
 
     .container {
         width: 1024px;
@@ -17,7 +18,8 @@ export const Cryptocurrencies = styled.main`
                 outline: 0;
                 padding: 10px 20px;
                 font-size: 14px;
-                background: #1b1a1d;
+                background: ${props => props.theme === 'light' ? '#FFF' : '#1b1a1d'};
+                transition: all ease 0.2s;
                 border: 0;
                 color: #FFF;
             }

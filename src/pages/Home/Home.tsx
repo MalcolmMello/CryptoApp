@@ -1,4 +1,6 @@
 import * as C from './styles'
+import { Context } from '../../contexts/contexts'
+import { useContext } from 'react'
 import { Cryptos } from '../../types/crypto'
 import { NewsTS } from '../../types/news'
 import { CryptoApi } from '../../api/CryptoApi'
@@ -9,6 +11,7 @@ import { News } from '../../components/News/News'
 import { useEffect, useState } from 'react'
 
 export const Home = () => {
+    const { state } = useContext(Context)
     const [cryptos, setCryptos] = useState<Cryptos>()
     const [news, setNews] = useState<NewsTS>()
 
@@ -31,7 +34,7 @@ export const Home = () => {
     }
 
     return (
-        <C.Area>
+        <C.Area theme={state.theme.theme}>
             <div className='container'>
             <section className='global--crypto--stats'>
                 <h1>Global Crypto Stats</h1>

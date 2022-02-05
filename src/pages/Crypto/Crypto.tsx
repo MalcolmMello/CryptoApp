@@ -1,13 +1,15 @@
 import * as C from './styles'
 import { useParams } from 'react-router-dom'
 import { CryptoApi } from '../../api/CryptoApi'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { Context } from '../../contexts/contexts'
 import { cryptoUuid } from '../../types/cryptoUuid'
 import { cryptoHistory} from '../../types/cryptoHistory'
 import { LineChart } from '../../components/LineChart/LineChart'
 import parse from 'html-react-parser';
 
 export const Crypto = () => {
+    const { state } = useContext(Context)
     const [crypto, setCrypto] = useState<cryptoUuid>()
     const [coinHistory, setCoinHistory] = useState<cryptoHistory>()
     const [period, setPeriod] = useState('7d')
@@ -47,7 +49,7 @@ export const Crypto = () => {
     ]
 
     return (
-        <C.Crypto>
+        <C.Crypto theme={state.theme.theme}>
             <section className='container'>
                 <div className='header'>
                     <h1>{crypto?.data.coin.name} ({crypto?.data.coin.name}-{crypto?.data.coin.symbol}) Price</h1>

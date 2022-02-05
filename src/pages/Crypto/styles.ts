@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Crypto = styled.main`
     min-height: 100vh;
     padding: 120px 0px;
-    background: #141316;
-    color: #FFF;
+    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 94%)' : '#141316'};
+    color: ${props => props.theme === 'light' ? '#000' : '#fff'};
+    transition: all ease 0.2s;
 
     .container {
         width: 1024px;
@@ -22,9 +23,9 @@ export const Crypto = styled.main`
                 outline: 0;
                 padding: 10px 20px;
                 font-size: 14px;
-                background: #1b1a1d;
+                background: ${props => props.theme === 'light' ? '#FFF' : '#1b1a1d'};
                 border: 0;
-                color: #FFF;
+                color: ${props => props.theme === 'light' ? '#000' : '#fff'};
             }
         }
 
@@ -77,12 +78,12 @@ export const Crypto = styled.main`
                     }
                     .name {
                         text-decoration: none;
-                        color: #fff;
+                        color: ${props => props.theme === 'light' ? '#000' : '#fff'};;
                         font-weight: 300;
-                        transition: all ease 0.2s
+                        transition: all ease 0.2s;
                     }
                     .name:hover {
-                        color: #aaa
+                        color: #aaa;
                     }
                 }
             }

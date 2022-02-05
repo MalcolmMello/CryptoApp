@@ -1,5 +1,8 @@
 import * as C from './styles'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../contexts/contexts'
+
 
 interface Props {
     rank: number,
@@ -12,8 +15,10 @@ interface Props {
 }
 
 export const Topten = ({rank, name, iconUrl, price, marketCap, change, uuid}: Props) => {
+    const { state } = useContext(Context)
+    
     return (
-        <C.Topten>
+        <C.Topten theme={state.theme.theme}>
             <Link to={`/crypto/${uuid}`}>
                 <div className='title'><span>{rank}. {name}</span> <img src={iconUrl} alt="foto da criptomoeda" /></div>
                 <div className='coin--datas'>

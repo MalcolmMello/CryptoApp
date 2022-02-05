@@ -1,5 +1,8 @@
 import * as C from './styles'
 import defaultimg from '../../assets/defaultimg.jpg'
+import { Context } from '../../contexts/contexts'
+import { useContext, useState } from 'react'
+
 interface Props {
     title: string,
     url: string,
@@ -11,9 +14,10 @@ interface Props {
 }
 
 export const News = ({title, url, desc, provider, providerImg, date, img}: Props) => {
+    const { state } = useContext(Context)
     const formatDate = new Date(date);
     return (
-        <C.News>
+        <C.News theme={state.theme.theme}>
             <a href={url} target="_blank">
                 <div className='title'><h4>{title}</h4> <img src={img} alt="imagem da notícia" /></div>
                 <div className='description'><p>{desc}</p></div>

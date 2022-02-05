@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: 'https://bing-news-search1.p.rapidapi.com'
+    baseURL: process.env.REACT_APP_NEWSAPI_URL
 })
+
 
 export const NewsApi = {
     getNews: async (newscategory: string, count: number) => {
@@ -10,8 +11,8 @@ export const NewsApi = {
             let news = await http.get(`/news/search?q=${newscategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`, {
                 headers: {
                     'x-bingapis-sdk': 'true',
-                    'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-                    'x-rapidapi-key': 'b62db25697msh5694fe061c62ef1p1ac465jsn112aa8012fd7'
+                    'x-rapidapi-host': process.env.REACT_APP_NEWSAPI_HOST as string,
+                    'x-rapidapi-key': process.env.REACT_APP_NEWSAPI_KEY as string
                 }
             })
             return news.data

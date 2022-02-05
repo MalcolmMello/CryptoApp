@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Area = styled.main`
     min-height: 100vh;
     padding: 120px 0px;
-    background: #141316;
-    color: #FFF;
+    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 94%)' : '#141316'};
+    color: ${props => props.theme === 'light' ? '#000' : '#fff'};
+    transition: all ease 0.2s;
     
 
     .container {

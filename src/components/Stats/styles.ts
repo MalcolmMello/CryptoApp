@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const GlobalStats = styled.div`
+export const GlobalStats = styled.div<{theme: string}>`
+    color: ${props => props.theme === 'light' ? '#000' : '#fff'};
     h3 {
         font-size: 14px;
         font-weight: 500;

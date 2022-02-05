@@ -6,7 +6,7 @@ interface Props {
 }
 
 const http = axios.create({
-    baseURL: 'https://coinranking1.p.rapidapi.com'
+    baseURL: process.env.REACT_APP_CRYPTO_URL
 })
 
 export const CryptoApi = {
@@ -14,8 +14,8 @@ export const CryptoApi = {
         try {
             let coins = await http.get(`/coins?limit=${limit}`, {
                 headers: {
-                    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-                    'x-rapidapi-key': 'b62db25697msh5694fe061c62ef1p1ac465jsn112aa8012fd7'
+                    'x-rapidapi-host': process.env.REACT_APP_CRYPTO_HOST as string,
+                    'x-rapidapi-key': process.env.REACT_APP_CRYPTO_KEY as string
                 }
             })
             return coins.data

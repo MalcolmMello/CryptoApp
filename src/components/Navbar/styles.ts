@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const Navbar = styled.header`
+export const Navbar = styled.header<{menu: boolean, theme: string}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 90px;
     width: 100%;
     position: fixed;
-    background: #1b1a1d;
-    color: #FFF;
+    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 98%)' : '#1b1a1d'};
+    color: ${props => props.theme === 'light' ? '#000' : '#fff'};
 
     .container {
         display: flex;
@@ -33,14 +33,29 @@ export const Navbar = styled.header`
         }
     }
 
+    .menu--buttons {
+        display: none
+    }
+    nav {
+        display: flex;
+        align-items: center
+    }
+    nav .menu--theme--area{
+        display: flex;
+        img {
+            height: 20px;
+            width: 20px;
+            margin-right: 20px
+        }
+    }
     .nav--area {
         display: flex;
         list-style: none;
         padding: 0px 20px;
-        margin-top: 30px;
+        
         li a {
             text-decoration: none;
-            color: #FFF;
+            color: ${props => props.theme === 'light' ? '#000' : '#fff'};
             display: flex;
             align-items: flex-end;
             margin-left: 30px;
@@ -54,6 +69,12 @@ export const Navbar = styled.header`
                 margin: 0px;
             }
         }
+        li img{
+            height: 20px;
+            width: 20px;
+            margin-left: 30px;
+            cursor: pointer
+        }
     }
 
     @media(max-width: 1024px) {
@@ -63,9 +84,33 @@ export const Navbar = styled.header`
         }
     }
     
-    @media(max-width: 510px) {
-        .nav--area {
-            display: none
+    @media(max-width: 768px) {
+        .container {
+            .menu--buttons {
+                display: block
+            }
+            nav {
+                .nav--area {
+                    position: absolute;
+                    width: ${props => props.menu ? '70vw' : '0px'};
+                    right: 0px;
+                    top: 90px;
+                    height: calc(100vh - 90px);
+                    background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 98%)' : '#1b1a1d'};
+                    margin: auto;
+                    flex-direction: column;
+                    transition: all ease 0.2s;
+                    padding: 0px;
+                    li {
+                        display: ${props => props.menu ? 'block' : 'none'};
+                        margin: 0px;
+                        margin-bottom: 30px;
+                        height: auto;
+                        font-weight: bold;
+                        padding: 10px 20px;
+                    }
+                }
+            }
         }
     }
 `

@@ -1,10 +1,13 @@
 import * as C from './styles'
+import { Context } from '../../contexts/contexts'
+import { useContext } from 'react'
 import { useState, useEffect } from 'react'
 import { Cryptos } from '../../types/crypto'
 import { CryptoApi } from '../../api/CryptoApi'
 import { Topten } from '../../components/Topten/Topten'
 
 export const Cryptocurrencies = () => {
+    const { state } = useContext(Context)
     const [cryptos, setCryptos] = useState<Cryptos>()
     const [input, setInputValue] = useState('')
 
@@ -21,7 +24,7 @@ export const Cryptocurrencies = () => {
     const filteredCoins = cryptos?.data.coins.filter(coin => coin.name.toLowerCase().includes(lowerSearch))
 
     return (
-        <C.Cryptocurrencies>
+        <C.Cryptocurrencies theme={state.theme.theme}>
             <section className='container'>
                 <div className='input--area'>
                     <input type="text"

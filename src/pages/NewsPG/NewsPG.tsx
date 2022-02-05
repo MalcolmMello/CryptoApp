@@ -1,5 +1,6 @@
 import * as C from './styles'
-import { useState, useEffect } from 'react'
+import { Context } from '../../contexts/contexts'
+import { useState, useEffect, useContext } from 'react'
 import { CryptoApi } from '../../api/CryptoApi'
 import { NewsApi } from '../../api/NewsApi'
 import { News } from '../../components/News/News'
@@ -7,6 +8,7 @@ import { Cryptos } from '../../types/crypto'
 import { NewsTS } from '../../types/news'
 
 export const NewsPG = () => {
+    const { state } = useContext(Context)
     const [cryptos, setCryptos] = useState<Cryptos>()
     const [news, setNews] = useState<NewsTS>()
     const [cryptoName, setCryptoName] = useState('Cryptocurrency')
@@ -30,7 +32,7 @@ export const NewsPG = () => {
     }
 
     return (
-        <C.NewsPG>
+        <C.NewsPG theme={state.theme.theme}>
             <section className='container'>
                 <div className='input--area'>
                     <select value={cryptoName} onChange={e => setCryptoName(e.target.value)}>

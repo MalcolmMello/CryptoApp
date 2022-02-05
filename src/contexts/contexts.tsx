@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import { ThemeType, themeInitialState, themeReducer } from '../reducers/ThemeReducer'
-
 import { reducerActionTypes } from "../types/reducerActionTypes";
 
 
@@ -14,7 +13,7 @@ type ContextType = {
 }
 
 const initialState = {
-    theme: themeInitialState
+    theme: themeInitialState,
 }
 
 export const Context = createContext<ContextType>({
@@ -23,7 +22,7 @@ export const Context = createContext<ContextType>({
 })
 
 const mainReducer = (state: initialStateType, action: reducerActionTypes) => ({
-    theme: themeReducer(state.theme, action)
+    theme: themeReducer(state.theme, action),
 })
 
 export const ContextProvider: React.FC = ({ children }) => {

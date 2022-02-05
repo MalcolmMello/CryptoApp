@@ -11,7 +11,7 @@ import { News } from '../../components/News/News'
 import { useEffect, useState } from 'react'
 
 export const Home = () => {
-    const { state } = useContext(Context)
+    const { state, dispatch } = useContext(Context)
     const [cryptos, setCryptos] = useState<Cryptos>()
     const [news, setNews] = useState<NewsTS>()
 

@@ -5,6 +5,7 @@ export const NewsPG = styled.main`
     padding: 120px 0px;
     background: ${props => props.theme === 'light' ? 'hsl(0, 0%, 94%)' : '#141316'};
     color: ${props => props.theme === 'light' ? '#000' : '#fff'};
+    transition: all ease 0.2s;
 
     .container {
         width: 1024px;

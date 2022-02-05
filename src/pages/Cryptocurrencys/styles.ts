@@ -21,7 +21,7 @@ export const Cryptocurrencies = styled.main<{theme: string}>`
                 background: ${props => props.theme === 'light' ? '#FFF' : '#1b1a1d'};
                 transition: all ease 0.2s;
                 border: 0;
-                color: #FFF;
+                color: ${props => props.theme === 'light' ? '#000' : '#fff'}
             }
         }
     }

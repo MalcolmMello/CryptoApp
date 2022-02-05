@@ -37,7 +37,7 @@ export const Navbar = () => {
                 </div>
                 <nav>
                     <div className='menu--theme--area'>
-                        <div className='change--theme'>
+                        <div className='change--theme' onClick={changeTheme}>
                             <img src={url} alt="change theme" />
                         </div>
                         <div className='menu--buttons'>

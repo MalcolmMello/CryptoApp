@@ -10,18 +10,24 @@ export const Cryptocurrencies = () => {
     const { state } = useContext(Context)
     const [cryptos, setCryptos] = useState<Cryptos>()
     const [input, setInputValue] = useState('')
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setInputValue('')
         getCoins()
     }, [])
 
+
     const getCoins = async () => {
+        setLoading(true)
         let coins = await CryptoApi.getCoins(100)
         setCryptos(coins)
+        setLoading(false)
     }
-    const lowerSearch = input.toLowerCase()
 
-    const filteredCoins = cryptos?.data.coins.filter(coin => coin.name.toLowerCase().includes(lowerSearch))
+    
+    const lowerCryptoSearch = input.toLowerCase()
+    const filteredCoins = cryptos?.data.coins.filter(coin => coin.name.toLowerCase().includes(lowerCryptoSearch))
 
     return (
         <C.Cryptocurrencies theme={state.theme.theme}>
@@ -34,7 +40,10 @@ export const Cryptocurrencies = () => {
                     />
                 </div>
                 <div className='coins--area'>
-                    {filteredCoins?.map((coin) => (
+                    {loading &&
+                        <div>Loading...</div>
+                    }
+                    {filteredCoins && filteredCoins.length > 0 && filteredCoins.map((coin) => (
                         <Topten
                             key={coin.uuid}
                             uuid={coin.uuid}
@@ -46,6 +55,9 @@ export const Cryptocurrencies = () => {
                             change={coin.change}
                         />
                     ))}
+                    {cryptos && filteredCoins && filteredCoins.length === 0 &&
+                        <div>There's no Cryptocurrencies with that name</div>
+                    }
                 </div>
             </section>
         </C.Cryptocurrencies>

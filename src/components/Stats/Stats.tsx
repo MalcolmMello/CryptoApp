@@ -1,4 +1,5 @@
 import * as C from './styles'
+import millify from 'millify'
 import { Context } from '../../contexts/contexts'
 import { useContext } from 'react'
 
@@ -13,7 +14,7 @@ export const Stats = ({title, content}: Props) => {
     return (
         <C.GlobalStats theme={state.theme.theme}>
             <h3>{title}</h3>
-            <p>{content}</p>
+            <p>{typeof content === 'number' ? millify(content) : millify(Number(content))}</p>
         </C.GlobalStats>
     )
 }

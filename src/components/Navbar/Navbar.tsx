@@ -16,7 +16,6 @@ export const Navbar = () => {
                 theme: state.theme.theme === 'light' ? 'dark' : 'light'
             }
         })
-        console.log(state.theme.theme)
     }
     
     const menu = () => {

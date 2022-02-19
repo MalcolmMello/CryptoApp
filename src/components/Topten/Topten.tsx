@@ -1,4 +1,5 @@
 import * as C from './styles'
+import millify from 'millify'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../../contexts/contexts'
@@ -23,7 +24,7 @@ export const Topten = ({rank, name, iconUrl, price, marketCap, change, uuid}: Pr
                 <div className='title'><span>{rank}. {name}</span> <img src={iconUrl} alt="foto da criptomoeda" /></div>
                 <div className='coin--datas'>
                     <p>Price: <span>$ {Number(price).toFixed(2)}</span></p>
-                    <p>Market Cap: <span>{Number(marketCap).toFixed(2)}</span></p>
+                    <p>Market Cap: <span>{millify(Number(marketCap))}</span></p>
                     <p>Daily Change: <span className={`forhundred ${Number(change) < 0 ? 'red' : 'green'}`}>{change}%</span></p>
                 </div>
             </Link>

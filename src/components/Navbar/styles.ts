@@ -45,7 +45,8 @@ export const Navbar = styled.header<{menu: boolean, theme: string}>`
         img {
             height: 20px;
             width: 20px;
-            margin-right: 20px
+            margin-right: 20px;
+            cursor: pointer
         }
     }
     .nav--area {

@@ -1,4 +1,5 @@
 import * as C from './styles'
+import millify from 'millify'
 import { useParams } from 'react-router-dom'
 import { CryptoApi } from '../../api/CryptoApi'
 import { useEffect, useState, useContext } from 'react'
@@ -77,7 +78,7 @@ export const Crypto = () => {
                                     <h5>{item.title}</h5>
                                     <small>
                                         {item.title !== 'Rank' ? '$' : ''}
-                                        {item.title !== 'Rank' ? Number(item.value).toFixed(2).replace('.', ',') : item.value}
+                                        {item.title !== 'Rank' ? millify(Number(item.value)) : item.value}
                                     </small>
                                 </div>
                             ))}
@@ -92,7 +93,7 @@ export const Crypto = () => {
                                         <h5>{item.title}</h5>
                                         <small>
                                             {item.title !== 'Number of Markets' && 'Number of Markets' && item.title !== 'Aprovved Supply' ? '$' : ''}
-                                            {item.title !== 'Number of Markets' && 'Number of Markets' && item.title !== 'Aprovved Supply' ? Number(item.value).toFixed(2).replace('.', ',') : item.value}
+                                            {item.title !== 'Aprovved Supply' ? millify(Number(item.value)) : item.value}
                                         </small>
                                     </div>
                                 ))}
